@@ -30,6 +30,11 @@ int _printf(const char *format, ...)
 				length++;
 				i = i + 1;
 			}
+			else if (format[i + 1] == 's')
+			{
+				length = length + _print_string(args);
+				i = i + 1;
+			}
 			else
 			{
 				_putchar(format[i]);
