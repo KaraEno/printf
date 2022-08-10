@@ -1,43 +1,29 @@
 #include "main.h"
 
 /**
- * _print_int - prints an integer
- * @args: the arguments list
- * Return: number of chars printed
+ * print_int - prints an integer.
+ * @arg: argument
+ * Return: 0
  */
 
-int _print_int(va_list args)
+int print_int(va_list arg)
 {
-	int a[10];
-	int j, m, n, sum, lenght;
-	n = va_arg(args, int);
+	unsigned int divisor = 1, i, result, printChar = 0;
+	int n = va_arg(arg, int);
 
-	lenght = 0;
-	m = 1000000000;
-	a[0] = n / m;
-
-	for (j = 1; j < 10; j++)
-	{
-		m /= 10;
-		a[j] = (n / m) % 10;
-	}
 	if (n < 0)
 	{
 		_putchar('-');
-		lenght++;
-
-		for (j = 0; j < 10; j++)
-			a[j] *= -1;
+		printChar++;
+		n *= -1;
 	}
-	for (j = 0, sum = 0; j < 10; j++)
+	for (i = 0; n / divisor > 9; i++, divisor *= 10)
+		;
+
+	for (; divisor >= 1; n %= divisor, divisor /= 10, printChar++)
 	{
-		sum += a[j];
-
-		if (sum != 0 || j == 9)
-		{
-			_putchar('0' + a[j]);
-			lenght++;
-		}
+		result = n / divisor;
+		_putchar('0' + result);
 	}
-	return (lenght);
+	return (printChar);
 }
