@@ -2,6 +2,8 @@
 #define MAIN_H
 
 #include <stdarg.h>
+
+
 int _putchar(char c);
 int print_int(va_list arg);
 int print_unsignedInt(va_list arg);
@@ -31,5 +33,8 @@ char *specifier;
 int (*print)(va_list);
 } specifiers;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> kara
 #endif
