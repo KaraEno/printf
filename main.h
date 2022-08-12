@@ -33,8 +33,4 @@ char *specifier;
 int (*print)(va_list);
 } specifiers;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> kara
 #endif
